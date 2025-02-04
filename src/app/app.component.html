@@ -32,12 +32,15 @@
     </header>
     <div class="controls">
       <button (click)="enableTextarea()">Agregar Nueva Entrada</button>
+      <button (click)="clearTextarea()">Limpiar</button>
       <div class="option">
         <label for="font">Tipografia:</label>
         <select id="font" [(ngModel)]="selectedFont">
           <option value="Arial">Arial</option>
           <option value="Courier New">Courier New</option>
           <option value="Georgia">Georgia</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Verdana">Verdana</option>
           </select>
       </div>
       <div class="option">
@@ -46,6 +49,9 @@
           <option value="12">12</option>
           <option value="14">14</option>
           <option value="16">16</option>
+          <option value="18">18</option>
+          <option value="20">20</option>
+          <option value="22">22</option>
           </select>
       </div>
       <div class="option">
@@ -54,15 +60,28 @@
           <option value="black">Negro</option>
           <option value="blue">Azul</option>
           <option value="red">Rojo</option>
+          <option  value="green">Verde</option>
+          <option value="pink">Rosa</option>
         </select>
       </div>
-    </div>
-    <Textarea
+      <div class="option">
+        <label for="LineHeight">Interlineado:</label>
+        <select id="LineHeight" [(ngModel)]="selectedLineHeight">
+          <option value="1">1</option>
+          <option value="1.5">1.5</option>
+          <option value="2">2</option>
+          <option value="2.5">2.5</option>
+        </select>
+      </div>
+    
+    
+<Textarea
     [disabled]="!isTextareaEnabled"
     [(ngModel)]="blogText"
     [style.font-family]="selectedFont"
     [style.font-size.px]="selectedSize"
     [style.color]="selectedColor"
+    [style.line-height]="selectedLineHeight"
     placeholder="Escribe aquí tu entrada..."
     ></Textarea> 
   </div>
